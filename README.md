@@ -28,3 +28,8 @@
 * [阻塞 (Blocking)、非阻塞 (Non-Blocking)](note/basic/blockingAndNonBlocking.md)
 
 * [死鎖 (Deadlock)、飢餓 (Starvation)、活鎖 (Livelock)](note/basic/deadlockStarvationLivelock.md)
+
+* [mulit-thread 級別 ( 阻塞、無飢餓、無障礙、無鎖、無等待 )](note/basic/multiThreadGrading.md)
+
+* [Java内存模型（Java Memory Model，__JMM__）
+  -> 原子性( Atomicity )、可見性( Visibility )、有序性( Ordering )](note/basic/JMM.md)

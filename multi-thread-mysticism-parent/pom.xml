@@ -11,10 +11,12 @@
     <name>Multi-thread Mysticism Parent</name>
 
     <modules>
-        <module>#</module>
+        <module>multi-thread-mysticism-aboutJMM</module>
     </modules>
 
     <properties>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.resource.version>3.1.0</maven.resource.version>
         <disruptor.version>3.3.2</disruptor.version>
         <junit.version>4.12</junit.version>
     </properties>
