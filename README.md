@@ -44,6 +44,6 @@
 
   * [多實作 Runnable 少繼承 Thread](note/likelyToBeIgnore/runnableVsThread.md)
 
-  * [如何合理的終止 Thread 運行（不要用 `stop()`方法）](note/likelyToBeIgnore/howToWStopThread.md)
+  * [如何合理的終止 Thread 運行（不要用 `stop()`方法，`interrupt()` 才是上上策）](note/likelyToBeIgnore/howToWStopThread.md)
 
-  * [Thread 中斷]()
+  * [`wait()` 與 `notify()` 怎麼用 ?](note/likelyToBeIgnore/waitAndNotify.md)
