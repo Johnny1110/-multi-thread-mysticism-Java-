@@ -47,3 +47,7 @@
   * [如何合理的終止 Thread 運行（不要用 `stop()`方法，`interrupt()` 才是上上策）](note/likelyToBeIgnore/howToWStopThread.md)
 
   * [`wait()` 與 `notify()` 怎麼用 ?](note/likelyToBeIgnore/waitAndNotify.md)
+
+  * [不要用 `suspend()` 與 `resume()`](note/likelyToBeIgnore/suspendAndResume.md)
+
+  * [`join()` 與 `yield()`](note/likelyToBeIgnore/joinAndYield.md)
