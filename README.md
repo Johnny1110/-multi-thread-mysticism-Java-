@@ -51,3 +51,9 @@
   * [不要用 `suspend()` 與 `resume()`](note/likelyToBeIgnore/suspendAndResume.md)
 
   * [`join()` 與 `yield()`](note/likelyToBeIgnore/joinAndYield.md)
+
+  * [volatile 可以保證可見性與有序性，但不能保證原子性](note/likelyToBeIgnore/volatile.md)
+
+  * [使用 ThreadGroup 管理 Thread 們](note/likelyToBeIgnore/threadGroup.md)
+
+  * [Daemon 守護執行緒（後臺運行）](note/likelyToBeIgnore/daemon.md)
