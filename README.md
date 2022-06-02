@@ -54,6 +54,11 @@
 
   * [volatile 可以保證可見性與有序性，但不能保證原子性](note/likelyToBeIgnore/volatile.md)
 
+  * [Thread Safe 與 synchronized 概念](note/likelyToBeIgnore/threadSafeAndSynchronized.md)
+
   * [使用 ThreadGroup 管理 Thread 們](note/likelyToBeIgnore/threadGroup.md)
 
   * [Daemon 守護執行緒（後臺運行）](note/likelyToBeIgnore/daemon.md)
+
+  * [Thread 的優先級，權貴與庶民](note/likelyToBeIgnore/threadPrioity.md)
+
