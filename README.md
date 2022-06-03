@@ -62,3 +62,8 @@
 
   * [Thread 的優先級，權貴與庶民](note/likelyToBeIgnore/threadPrioity.md)
 
+  * [並發情況下不要用 ArrayList，改用 Vector](note/likelyToBeIgnore/arrayList.md)
+
+  * [HashMap 也不安全，改用 ConcurrentHashMap](note/likelyToBeIgnore/hashMap.md)
+
+  * [千萬不要對 Integer 上鎖 ！！！](note/likelyToBeIgnore/dontLockInt.md)
