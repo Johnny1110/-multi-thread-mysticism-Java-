@@ -67,3 +67,12 @@
   * [HashMap 也不安全，改用 ConcurrentHashMap](note/likelyToBeIgnore/hashMap.md)
 
   * [千萬不要對 Integer 上鎖 ！！！](note/likelyToBeIgnore/dontLockInt.md)
+
+  <br>
+
+### 三、Java 多執行緒高級 API
+
+  <br>
+
+
+  * [`synchronized()`、`wait()`、`notify()` 的替代品： `ReentrantLock` （中斷等待、鎖申請等待時間、公平鎖）](note/highLevelAPI/ReentrantLock.md)

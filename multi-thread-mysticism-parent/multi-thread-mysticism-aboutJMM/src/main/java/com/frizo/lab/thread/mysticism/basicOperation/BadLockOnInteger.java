@@ -1,5 +1,7 @@
 package com.frizo.lab.thread.mysticism.basicOperation;
 
+import java.util.EnumSet;
+
 public class BadLockOnInteger implements Runnable {
 
     private static Integer i = 0;
