@@ -12,6 +12,9 @@
 
     <modules>
         <module>multi-thread-mysticism-aboutJMM</module>
+        <module>multi-thread-mysticism-basicOperation</module>
+        <module>multi-thread-mysticism-highLevelAPI</module>
+
     </modules>
 
     <properties>

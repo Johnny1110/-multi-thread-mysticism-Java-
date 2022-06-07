@@ -75,4 +75,6 @@
   <br>
 
 
-  * [`synchronized()`、`wait()`、`notify()` 的替代品： `ReentrantLock` （中斷等待、鎖申請等待時間、公平鎖）](note/highLevelAPI/ReentrantLock.md)
+  * [`synchronized()` 的替代品： `ReentrantLock` （中斷等待、鎖申請等待時間、公平鎖）](note/highLevelAPI/ReentrantLock.md)
+
+  * [`wait()`、`notify()` 的替代品：`Condition`](note/highLevelAPI/Condition.md)
