@@ -1,4 +1,4 @@
-# `synchronized()`、`wait()`、`notify()` 的替代品： `ReentrantLock`
+# `synchronized()` 的替代品： `ReentrantLock`
 
 <br>
 
