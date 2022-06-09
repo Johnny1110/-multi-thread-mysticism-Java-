@@ -80,3 +80,9 @@
   * [`wait()`、`notify()` 的替代品：`Condition`](note/highLevelAPI/Condition.md)
 
   * [`Semaphore` 信號量，允許多個 Thread 同時訪問](note/highLevelAPI/Semaphore.md)
+
+  * [`ReadWriteLock` 讀寫分離鎖](note/highLevelAPI/ReadWriteLock.md)
+
+  * [Thread 完成數量達標才放行：CountDownLatch](note/highLevelAPI/CountDownLatch.md)
+
+  * [循環柵欄：CyclicBarrier（士兵集結完畢後再一起作戰）](note/highLevelAPI/CyclicBarrier.md)
