@@ -86,3 +86,5 @@
   * [Thread 完成數量達標才放行：CountDownLatch](note/highLevelAPI/CountDownLatch.md)
 
   * [循環柵欄：CyclicBarrier（士兵集結完畢後再一起作戰）](note/highLevelAPI/CyclicBarrier.md)
+
+  * [取代 `suspend()` 與 `resume()` 的最佳工具：LockSupport](note/highLevelAPI/LockSupport.md)
