@@ -10,6 +10,8 @@
 多執行緒奧義，深入研究 Java 多執行緒相關問題的紀錄歸總。
 
 <br>
+<br>
+<br>
 
 ## 目錄
 
@@ -88,3 +90,15 @@
   * [循環柵欄：CyclicBarrier（士兵集結完畢後再一起作戰）](note/highLevelAPI/CyclicBarrier.md)
 
   * [取代 `suspend()` 與 `resume()` 的最佳工具：LockSupport](note/highLevelAPI/LockSupport.md)
+
+  <br>
+
+  ### 四、Thread Pool 系列
+
+  <br>
+
+  * [Executor 框架介紹](note/threadPool/Executor.md)
+
+  * [固定大小 ThreadPool 與計畫任務](note/threadPool/fixThreadPoolNScheduledThreadPool.md)
+
+  * [探究底層：ThreadPool 的內部實作](note/threadPool/howToImpl.md)
