@@ -96,7 +96,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
 3. __無界任務隊列__
 
-    無界任務隊列可以通過 __LinkedBlockingQueue__ 類別實現。與有界隊列的保守相比，無界隊列除發系統資源耗盡，否則不會存在任務入列失敗的情況。當有新任務來到，且 ThreadPool 中的 Thread 小於 `corePoolSize` 時，建立新的 Thread 執行任務，但當 ThreadPool 數量達到 `corePoolSize` 後，就不再繼續增加。若後續有新的任務加入，而又沒有空閒的 Thread 資源，則直接進隊列等待。__無界任務隊列會無上限增長，直到系統內存耗盡。__
+    無界任務隊列可以通過 __LinkedBlockingQueue__ 類別實現。與有界隊列的保守相比，無界隊列除非系統資源耗盡，否則不會存在任務入列失敗的情況。當有新任務來到，且 ThreadPool 中的 Thread 小於 `corePoolSize` 時，建立新的 Thread 執行任務，但當 ThreadPool 數量達到 `corePoolSize` 後，就不再繼續增加。若後續有新的任務加入，而又沒有空閒的 Thread 資源，則直接進隊列等待。__無界任務隊列會無上限增長，直到系統內存耗盡。__
 
 <br>
 
