@@ -106,3 +106,7 @@
   * [任務太多隊列塞爆了：拒絕策略](note/threadPool/rejectHandler.md)
 
   * [自定義 Thread 創建：__ThreadFactory__](note/threadPool/threadFactory.md)
+
+  * [擴展 ThreadPool，繼承 __ThreadPoolExecutor__](note/threadPool/extendsExecutorPoolExecutor.md)
+
+  * [合理計算並決定 ThreadPool 的 Thread 數量](note/threadPool/computeSuitableThreadCount.md)
