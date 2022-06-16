@@ -112,3 +112,5 @@
   * [合理計算並決定 ThreadPool 的 Thread 數量](note/threadPool/computeSuitableThreadCount.md)
 
   * [在 ThreadPool 中尋找被藏起來的 __Exception__](note/threadPool/findException.md)
+
+  * [Fork/Join 框架（MapReduce 思想）](note/threadPool/forkNJoin.md)
