@@ -110,3 +110,5 @@
   * [擴展 ThreadPool，繼承 __ThreadPoolExecutor__](note/threadPool/extendsExecutorPoolExecutor.md)
 
   * [合理計算並決定 ThreadPool 的 Thread 數量](note/threadPool/computeSuitableThreadCount.md)
+
+  * [在 ThreadPool 中尋找被藏起來的 __Exception__](note/threadPool/findException.md)
