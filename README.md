@@ -114,3 +114,11 @@
   * [在 ThreadPool 中尋找被藏起來的 __Exception__](note/threadPool/findException.md)
 
   * [Fork/Join 框架（MapReduce 思想）](note/threadPool/forkNJoin.md)
+
+  <br>
+
+  ### 四、多執行緒資料結構
+
+  <br>
+
+  * [好用的工具：多執行緒集合類別簡介](note/dataStructures/intro.md)

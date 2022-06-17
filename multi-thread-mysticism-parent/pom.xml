@@ -15,7 +15,7 @@
         <module>multi-thread-mysticism-basicOperation</module>
         <module>multi-thread-mysticism-highLevelAPI</module>
         <module>multi-thread-mysticism-threadPool</module>
-
+        <module>multi-thread-mysticism-dataStructures</module>
     </modules>
 
     <properties>
