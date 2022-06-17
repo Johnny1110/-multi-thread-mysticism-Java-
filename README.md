@@ -122,3 +122,5 @@
   <br>
 
   * [好用的工具：多執行緒集合類別簡介](note/dataStructures/intro.md)
+
+  * [解析高效的讀寫隊列：__ConcurrentLinkedQueue__](note/dataStructures/concurrentLinkedQueue.md)
