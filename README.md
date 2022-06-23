@@ -126,3 +126,5 @@
   * [（超難）解析高效的讀寫隊列：__ConcurrentLinkedQueue__](note/dataStructures/concurrentLinkedQueue.md)
 
   * [高效讀取陣列：不變模式下的　__CopyOnWriteArrayList__](note/dataStructures/copyOnWriteArrayList.md)
+
+  * [資料共享通道：__BlockingQueue__](note/dataStructures/blockingQueue.md)

@@ -45,4 +45,4 @@ public boolean add(E e) {
 
 <br>
 
-這個鎖僅控制寫與寫操作，修改完成後，執行讀取任務的 Thread 可以馬上察覺這個修改，因為 `array` 變數是宣告成 `volatile` 的。 
+這個鎖僅控制寫與寫操作，修改完成後，執行讀取任務的 Thread 可以馬上察覺這個修改，因為 `array` 變數是宣告成 `volatile` 的。
