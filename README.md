@@ -129,6 +129,5 @@
 
   * [資料共享通道：__BlockingQueue__](note/dataStructures/blockingQueue.md)
 
-  * [隨機資料結構：跳表（SkipList）實現部分鎖](note/dataStructures/skipList.md)
+  * [隨機資料結構：跳表（SkipList）實現部分鎖（多執行緒 Map，有緒性，快速查找。）](note/dataStructures/skipList.md)
 
-  
