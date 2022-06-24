@@ -128,3 +128,7 @@
   * [高效讀取陣列：不變模式下的　__CopyOnWriteArrayList__](note/dataStructures/copyOnWriteArrayList.md)
 
   * [資料共享通道：__BlockingQueue__](note/dataStructures/blockingQueue.md)
+
+  * [隨機資料結構：跳表（SkipList）實現部分鎖](note/dataStructures/skipList.md)
+
+  
