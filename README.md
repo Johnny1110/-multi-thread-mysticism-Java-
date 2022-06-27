@@ -129,5 +129,15 @@
 
   * [資料共享通道：__BlockingQueue__](note/dataStructures/blockingQueue.md)
 
-  * [隨機資料結構：跳表（SkipList）實現部分鎖（多執行緒 Map，有緒性，快速查找。）](note/dataStructures/skipList.md)
+  * [隨機資料結構：跳表（SkipList）實現部分鎖（多執行緒 Map，有序性，快速查找。）](note/dataStructures/skipList.md)
 
+
+<br>
+
+### 五、開發時要注意的細節和鎖的優化
+
+<br>
+
+* [注意！減小鎖持有時間，能不上鎖就不上鎖](note/advancedConception/dontLockIfPossible.md)
+
+* [減小鎖粒度](note/advancedConception/Lockgranularity.md)
