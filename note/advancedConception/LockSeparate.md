@@ -1,23 +1,38 @@
-package mysticism.advancedConception;
+# 鎖分離
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
+<br>
 
-public final class Temp<E> {
+---
 
-    private final ReentrantLock takeLock = new ReentrantLock();
-    private final Condition notEmpty = takeLock.newCondition(); // take() 方法使用的 takeLock
+<br>
 
-    private final ReentrantLock putLock = new ReentrantLock();
-    private final Condition notFull = putLock.newCondition();   // put() 方法使用的 putLock
+鎖分離是根據讀寫操作的不同，對獨佔鎖進行有效的分離。
 
-    private AtomicInteger count = new AtomicInteger(0);
-    private int capacity = 36;
+舉經典例子就是 __LinkedBlockingQueue__。在 __LinkedBlockingQueue__ 中的 `take()` 與 `put()` 方法分別實現從對列頭部取出值，和從尾部放入值。從理論上來說，二者並不存在衝突，如果使用獨佔鎖來鎖住整體隊列，那麼 `take()` 與 `put()` 方法就不可能同時執行，它們彼此會等待對方釋放鎖，影響多執行緒效能。
 
+JDK 的實現使用的是 2 把不同鎖來分離 `take()` 與 `put()`。
 
-    public E take() throws InterruptedException {
+<br>
+
+```java
+private final ReentrantLock takeLock = new ReentrantLock();
+private final Condition notEmpty = takeLock.newCondition(); // take() 方法使用的 takeLock
+
+private final ReentrantLock putLock = new ReentrantLock();
+private final Condition notFull = putLock.newCondition();   // put() 方法使用的 putLock
+```
+
+<br>
+
+`take()` 與 `put()` 使用了不同的鎖，因此它們之間就互相獨立了，只需要 `take()` 與 `take()` 之間，`put()` 與 `put()` 之間進行競爭就可以了。
+
+<br>
+<br>
+
+`take()` 方法實現： 
+
+```java
+public E take() throws InterruptedException {
         E x;
         int c = -1;
         final AtomicInteger count = this.count;
@@ -46,15 +61,15 @@ public final class Temp<E> {
         }
         return x;
     }
+```
 
-    private void signalNotFull() {
-    }
+<br>
+<br>
 
-    private E extract() {
-        return null;
-    }
+`put()` 方法實現： 
 
-    public void put(E e) throws InterruptedException {
+```java
+public void put(E e) throws InterruptedException {
         if (e == null) throw new NullPointerException();
         int c = -1;
         final ReentrantLock putLock = this.putLock;
@@ -81,12 +96,8 @@ public final class Temp<E> {
             signalNotEmpty();  // c == 0 代表 put() 前隊列已空，take() 們都在等，所以要通知 take() 們可以繼續。
         }
     }
+```
 
-    private void signalNotEmpty() {
-    }
+<br>
 
-    private void insert(E e) {
-
-    }
-
-}
+透過 `takeLock` 與 `putLock` 實現了 __LinkedBlockingQueue__ 的讀寫分離，真正意義上實現了併發。

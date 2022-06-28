@@ -141,3 +141,5 @@
 * [注意！減小鎖持有時間，能不上鎖就不上鎖](note/advancedConception/dontLockIfPossible.md)
 
 * [減小鎖粒度](note/advancedConception/Lockgranularity.md)
+
+* [鎖分離](note/advancedConception/LockSeparate.md)
