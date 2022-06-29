@@ -140,6 +140,10 @@
 
 * [注意！減小鎖持有時間，能不上鎖就不上鎖](note/advancedConception/dontLockIfPossible.md)
 
+* [注意！鎖粗化（大量分散上鎖會造成浪費），能一起上鎖就一起上鎖](note/advancedConception/LockCoarsening.md)
+
 * [減小鎖粒度](note/advancedConception/Lockgranularity.md)
 
 * [鎖分離](note/advancedConception/LockSeparate.md)
+
+* [JVM 把細節做到了極致（偏向鎖、輕量級鎖、自旋鎖、鎖消除）](note/advancedConception/JvmKeepImproving.md)
