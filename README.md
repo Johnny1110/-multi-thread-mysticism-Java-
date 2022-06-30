@@ -147,3 +147,5 @@
 * [鎖分離](note/advancedConception/LockSeparate.md)
 
 * [JVM 把細節做到了極致（偏向鎖、輕量級鎖、自旋鎖、鎖消除）](note/advancedConception/JvmKeepImproving.md)
+
+* [ThreadLocal，為每個 Thread 分配專屬於自己的資源（不用共享）](note/advancedConception/ThreadLocal.md)
