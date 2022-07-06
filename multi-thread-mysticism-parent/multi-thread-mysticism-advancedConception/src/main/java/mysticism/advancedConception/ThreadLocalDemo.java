@@ -10,21 +10,19 @@ public class ThreadLocalDemo {
 
     static ThreadLocal<SimpleDateFormat> local = new ThreadLocal<>();
 
-
     public static class ParseDate implements Runnable {
 
         int i = 0;
 
         public ParseDate(int i) {
             this.i = i;
-            local.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         }
 
         @Override
         public void run() {
             try {
-                //if (local.get() == null)
-                    //local.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+                if (local.get() == null)
+                    local.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
                 Date date = local.get().parse("2022-06-30 11:50:" + i%60);
                 System.out.println(i + ":" + date);
             } catch (ParseException e){
