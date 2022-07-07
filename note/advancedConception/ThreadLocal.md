@@ -380,3 +380,110 @@ static class Entry extends WeakReference<ThreadLocal> {
 
 
 ## ThreadLocal 對性能的提升
+
+<br>
+
+我們做一個測試，測試內容是使用 __Random__ 物件產生隨機數，分別做成使用 __ThreadLocal__ 版本與多執行緒共享一個 __Random__ 版本。
+
+__Random__ 本身是 Thread Safe 的物件，所以這邊就不需要給他上鎖了。
+
+具體細節都在 code 中寫了註解，直接看就可以。
+
+<br>
+
+```java
+public class ThreadLocalPerformance {
+
+    public static final int GEN_COUNT = 10000000; // 生成數量
+    public static final int THREAD_COUNT = 4; // 執行緒數量
+    static ExecutorService exe = Executors.newFixedThreadPool(THREAD_COUNT);
+
+    public static Random rnd = new Random(123); // 第一種不使用 ThreadLocal 做法
+
+    public static ThreadLocal<Random> local = new ThreadLocal<Random>() { // 第二種使用 ThreadLocal 做法
+        protected Random initialValue() {
+            return new Random(123);
+        }
+    };
+
+    public static class RandTask implements Callable<Long> {
+        // mode 為 0 代表多 Thread 共用一個 Random，為 1 代表各 Thread 都各分配一個 Random (ThreadLocal)
+        private int mode = 0;
+
+        public RandTask(int mode) {
+            this.mode = mode;
+        }
+
+        public Random getRandom() {
+            if (mode == 0) {
+                return rnd;
+            }
+            if (mode == 1) {
+                return local.get();
+            }
+            return null;
+        }
+
+        @Override
+        public Long call() {
+            long begin = System.currentTimeMillis();
+            for (long i = 0; i < GEN_COUNT; ++i) {
+                getRandom().nextInt();
+            }
+            long end = System.currentTimeMillis();
+            long result = end - begin;
+            System.out.println(Thread.currentThread().getName() + " spend " + result + " ms.");
+            return result;
+        }
+    }
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        int mode = 0;
+        Future<Long>[] futs = new Future[THREAD_COUNT];
+        for (int i = 0; i < THREAD_COUNT; ++i) {
+            futs[i] = exe.submit(new RandTask(mode));
+        }
+
+        long totalTime = 0;
+        for (int i = 0; i < futs.length; i++) {
+            totalTime += futs[i].get();
+        }
+        System.out.println("使用 mode-" + mode+ " 共所耗時間：" + totalTime + "ms");
+        exe.shutdown();
+    }
+}
+```
+
+<br>
+
+這裡先測試 `mode = 0` 的情況（共享單一 __Random__）：
+
+<br>
+
+```
+pool-1-thread-3 spend 3136 ms.
+pool-1-thread-4 spend 3281 ms.
+pool-1-thread-2 spend 3287 ms.
+pool-1-thread-1 spend 3287 ms.
+使用 mode-0 共所耗時間：12991ms
+```
+
+大概執行了 3.2 秒左右完成。
+
+<br>
+
+換成 `mode = 1` 來看一下（使用 __ThreadLocal__）：
+
+<br>
+
+```java
+pool-1-thread-3 spend 136 ms.
+pool-1-thread-1 spend 142 ms.
+pool-1-thread-2 spend 144 ms.
+pool-1-thread-4 spend 146 ms.
+使用 mode-1 共所耗時間：568ms
+```
+
+<br>
+
+平均一個花了 0.14 秒，效率直接體現出來了。
