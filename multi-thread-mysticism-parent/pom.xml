@@ -17,6 +17,7 @@
         <module>multi-thread-mysticism-threadPool</module>
         <module>multi-thread-mysticism-dataStructures</module>
         <module>multi-thread-mysticism-advancedConception</module>
+        <module>multi-thread-mysticism-nonLock</module>
     </modules>
 
     <properties>

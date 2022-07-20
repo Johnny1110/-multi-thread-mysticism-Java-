@@ -157,3 +157,7 @@
 <br>
 
 * [不一樣的併發思維策略：比較交換（CAS）](note/noLock/CAS.md)
+
+* [Java Pointer：__Unsafe__](note/noLock/Unsafe.md)
+
+* [無鎖的 Thread Safe 整數：__AtomicInteger__](note/noLock/AtomicInteger.md)
