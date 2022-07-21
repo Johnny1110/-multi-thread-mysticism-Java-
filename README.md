@@ -161,3 +161,5 @@
 * [Java Pointer：__Unsafe__](note/noLock/Unsafe.md)
 
 * [無鎖的 Thread Safe 整數：__AtomicInteger__](note/noLock/AtomicInteger.md)
+
+* [無鎖的物件引用：__AtomicReference__](note/noLock/AtomicReference.md)
