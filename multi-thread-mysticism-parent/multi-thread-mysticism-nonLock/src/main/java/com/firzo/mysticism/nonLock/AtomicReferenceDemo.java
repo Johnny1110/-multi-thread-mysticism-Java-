@@ -1,22 +1,7 @@
-# 無鎖的物件引用：__AtomicReference__
+package com.firzo.mysticism.nonLock;
 
-<br>
+import java.util.concurrent.atomic.AtomicReference;
 
--------
-
-<br>
-
-__AtomicReference__ 可以保證你在修改物件引用時的 Thread Safe。
-
-前面章節 [CAS 原子性操作的不足](CASProblem.md) 提到了一些問題，這裡用 __AtomicReference__ 物件來示範一下這個問題。
-
-<br>
-
-有一家店辦活動，如果貴賓卡里餘額小於 20 元就送 20 元，每一個課戶只會被贈送一次。
-
-<br>
-
-```java
 public class AtomicReferenceDemo {
 
     private static AtomicReference<Integer> money = new AtomicReference<>();
@@ -80,42 +65,3 @@ public class AtomicReferenceDemo {
         new Thread(costTask).start();
     }
 }
-```
-
-<br>
-
-__AddMoneyTask__ 判斷餘額並贈送金額，如果已經被其他 Thread 處理，那當前 Thread 就會失敗，並繼續不斷檢查餘額。
-
-如果不幸 __CostMoneyTask__ 正好在消費。在贈與金額到帳同時，進行一次消費，使總金額又小於 20，且正好共消費 20 元，使消費與贈與後金額相等於消費贈與前金額。負責加值的 Thread 就誤以為這個帳戶沒有贈與，所以會有多次贈與發生。
-
-<br>
-
-印出結果：
-
-<br>
-
-```
-餘額：19 贈送 20 元，加值後餘額：39
-大於 10 元
-成功消費 10 元，餘額：29
-大於 10 元
-成功消費 10 元，餘額：39
-大於 10 元
-餘額：19 贈送 20 元，加值後餘額：39
-成功消費 10 元，餘額：29
-大於 10 元
-成功消費 10 元，餘額：39
-大於 10 元
-餘額：19 贈送 20 元，加值後餘額：39
-成功消費 10 元，餘額：29
-大於 10 元
-成功消費 10 元，餘額：39
-...
-```
-
-<br>
-
-這個範例比較極端一點，因為這個情況出現概率不大，但是還是會有可能出現。因此還是需要正視這個問題，JDK 提供了 __AtomicStampedReference__ 解決這個問題。除了比對期望值與實際值外，還要再額外比對時間戳記。
-
-<br>
-

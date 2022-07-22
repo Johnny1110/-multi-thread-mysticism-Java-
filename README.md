@@ -164,4 +164,4 @@
 
 * [無鎖的 Thread Safe 整數：__AtomicInteger__](note/noLock/AtomicInteger.md)
 
-* [無鎖的物件引用：__AtomicReference__](note/noLock/AtomicReference.md)
+* [無鎖的物件引用：__AtomicReference__ 與帶有時間戳記雙重驗證的無鎖的物件引用：__AtomicStampedReference__](note/noLock/AtomicReference.md)
