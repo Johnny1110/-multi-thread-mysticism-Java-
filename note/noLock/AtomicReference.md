@@ -6,6 +6,10 @@
 
 <br>
 
+## __AtomicReference__
+
+<br>
+
 __AtomicReference__ 可以保證你在修改物件引用時的 Thread Safe。
 
 前面章節 [CAS 原子性操作的不足](CASProblem.md) 提到了一些問題，這裡用 __AtomicReference__ 物件來示範一下這個問題。
@@ -118,4 +122,31 @@ __AddMoneyTask__ 判斷餘額並贈送金額，如果已經被其他 Thread 處�
 這個範例比較極端一點，因為這個情況出現概率不大，但是還是會有可能出現。因此還是需要正視這個問題，JDK 提供了 __AtomicStampedReference__ 解決這個問題。除了比對期望值與實際值外，還要再額外比對時間戳記。
 
 <br>
+<br>
+<br>
+<br>
+
+## __AtomicStampedReference__
+
+<br>
+
+__AtomicStampedReference__ 內部不僅維護了物件值，還維護了一個時間戳。當 __AtomicStampedReference__ 對應的數值被修改時，除了更新資料本身，還要更新時間戳。當 __AtomicStampedReference__ 設置物件值時，物件以及時間戳都必須滿足期望值才可以寫入。
+
+因此，即使物件值被反覆讀寫，寫回原值，只要時間戳發生變化，就可以防止 CAS 誤判。
+
+<br>
+
+__AtomicStampedReference__ 的關於時間戳的 API：
+
+<br>
+
+```java
+public boolean compareAndSet(V expectedReference, V newReference, int expectedStamp, int newStamp)
+
+public V getReference()
+
+public int getStamp()
+
+public void set(V newReference, V expectedReference, int newStamp)
+```
 
