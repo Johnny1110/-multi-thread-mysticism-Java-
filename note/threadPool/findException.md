@@ -151,3 +151,24 @@ Exception in thread "pool-1-thread-1" java.lang.ArithmeticException: / by zero
 33.0
 50.0
 ```
+
+<br>
+<br>
+<br>
+<br>
+
+## 2022/08/10 補充
+
+<br>
+
+在做專案中發現，其實繼承了 ThreadPoolExecutor，只要實作 afterExecute() 方法就可以達到上述效果。
+
+```java
+@Override
+protected void afterExecute(Runnable r, Throwable t) {
+    log.info("Task finished, TASK: " + r.getClass().getName());
+     if (t!= null){
+         log.error("Task failed, TASK:" + ((BaseScheduleTask) r).getName(), t);
+     }
+}
+```
