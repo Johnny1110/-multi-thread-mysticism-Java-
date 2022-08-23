@@ -169,3 +169,5 @@
 * [無鎖的 Array：__AtomicIntegerArray__](note/noLock/AtomicIntegerArray.md)
 
 * [把普通變數進化成原子化變數：__AtomicFieldUpdater__](note/noLock/AtomicFieldUpdater.md)
+
+* [實作練習：無鎖 __Vector__ 實現挑戰](note/noLock/nonLockVector.md)
